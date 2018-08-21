@@ -25,18 +25,26 @@ matrix:
 # skip unsupported combinations
 init:
   - ps: |
+    If ($isLinux) {
+      $env:APPVEYOR_CACHE_SKIP_RESTORE = "true"
+      $env:APPVEYOR_CACHE_SKIP_SAVE = "true"
+    }
   - cmd: |
+    If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
+    If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2015" ( set generator="Visual Studio 14 2015%arch%" )
+    If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Ubuntu" ( set generator="Unix Makefiles" )
+    echo %generator%
   - sh: |
     docker pull $DOCKER_IMAGE
-- set arch=
-- if "%arch%"=="Win64" ( set arch= Win64)
-- echo %arch%
-- echo %APPVEYOR_BUILD_WORKER_IMAGE%
-- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
-- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2015" ( set generator="Visual Studio 14 2015%arch%" )
-- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Ubuntu" ( set generator="Unix Makefiles" )
-- echo %generator%
-- sh: sh build_files/build_environment/install_deps.sh --with-all --no-confirm
+#- set arch=
+#- if "%arch%"=="Win64" ( set arch= Win64)
+#- echo %arch%
+#- echo %APPVEYOR_BUILD_WORKER_IMAGE%
+#- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
+#- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2015" ( set generator="Visual Studio 14 2015%arch%" )
+#- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Ubuntu" ( set generator="Unix Makefiles" )
+#- echo %generator%
+#- sh: sh build_files/build_environment/install_deps.sh --with-all --no-confirm
 
 install:
 - sh: cmake cmake-curses-gui
