@@ -62,7 +62,7 @@ build_script:
         apt update && apt upgrade -y && apt install -y git cmake;
         sh /src/build_files/build_environment/install_deps.sh --with-all --no-confirm;
         echo Building with Unix Makefiles;
-        cmake .. -GUnix Makefiles -DCMAKE_BUILD_TYPE=Release /src;
+        cmake . -G'Unix Makefiles' -DCMAKE_BUILD_TYPE=Release /src;
         cmake --build .;"
 
 #    call build_files/build_environment/windows/install_cuda.cmd
