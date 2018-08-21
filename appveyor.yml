@@ -59,7 +59,8 @@ build_script:
   - sh: >-
       docker run --rm -v $(pwd):/src $DOCKER_IMAGE /bin/bash -c "
         mkdir build && cd build;
-        apt update && apt upgrade -y && apt install -y git cmake;
+        apt update && apt upgrade -y && apt install -y git cmake sudo;
+        useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo;
         . /src/build_files/build_environment/install_deps.sh --with-all --no-confirm;
         echo Building with Unix Makefiles;
         cmake . -G'Unix Makefiles' -DCMAKE_BUILD_TYPE=Release /src;
