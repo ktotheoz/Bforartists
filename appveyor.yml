@@ -11,7 +11,7 @@ configuration: Release
 platform: x64
 environment:
   APPVEYOR_SAVE_CACHE_ON_ERROR: true
-  DOCKER_IMAGE: ubuntu:16.04
+  DOCKER_IMAGE: ubuntu:18.04
   matrix:
   - TARGET_PLATFORM: x86
   - TARGET_PLATFORM: x64
@@ -59,7 +59,7 @@ build_script:
   - sh: >-
       docker run --rm -v $(pwd):/src $DOCKER_IMAGE /bin/bash -c "
         mkdir build && cd build;
-        apt update && apt install git cmake;
+        apt update && apt install -y git cmake;
         sh /src/build_files/build_environment/install_deps.sh --with-all --no-confirm;
         echo Building with %generator%;
         cmake .. -G %generator% -DCMAKE_BUILD_TYPE=Release /src;
