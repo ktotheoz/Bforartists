@@ -13,8 +13,8 @@ environment:
   APPVEYOR_SAVE_CACHE_ON_ERROR: true
   DOCKER_IMAGE: ubuntu:16.04
   matrix:
-  - TARGET_PLATFORM: x86
   - TARGET_PLATFORM: x64
+  - TARGET_PLATFORM: x86
   
 matrix:
   fast_finish: true
@@ -30,6 +30,8 @@ init:
         $env:APPVEYOR_CACHE_SKIP_SAVE = "true"
       }
   - cmd: |
+      set arch=
+      if "%TARGET_PLATFORM%"=="x64" ( set arch= Win64)
       If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
       If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2015" ( set generator="Visual Studio 14 2015%arch%" )
       If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Ubuntu" ( set generator="Unix Makefiles" )
@@ -51,7 +53,8 @@ install:
 
 build_script:
   - cmd: |
-      if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2015" (svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc14 ../lib/windows_vc14)
+      if "%TARGET_PLATFORM%"=="x64" (svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/windows_vc14 ../lib/windows_vc14)
+      if "%TARGET_PLATFORM%"=="x86" (svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc14 ../lib/win64_vc14)
       mkdir build
       cd build
       cmake --version
