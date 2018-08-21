@@ -59,7 +59,7 @@ build_script:
   - sh: >-
       docker run --rm -v $(pwd):/src $DOCKER_IMAGE /bin/bash -c "
         mkdir build && cd build;
-        apt install git cmake;
+        apt update && apt install git cmake;
         sh /src/build_files/build_environment/install_deps.sh --with-all --no-confirm;
         echo Building with %generator%;
         cmake .. -G %generator% -DCMAKE_BUILD_TYPE=Release /src;
