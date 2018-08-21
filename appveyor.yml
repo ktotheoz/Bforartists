@@ -4,9 +4,9 @@ branches:
   - master
 # clone_folder: C:/projects/bfa
 image:
-  - Ubuntu
   - Visual Studio 2015
   - Visual Studio 2017
+  - Ubuntu
 configuration: Release
 platform: x64
 environment:
