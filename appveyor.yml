@@ -30,12 +30,12 @@ init:
 #      $env:APPVEYOR_CACHE_SKIP_SAVE = "true"
 #    }
   - cmd: |
-    If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
-    If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2015" ( set generator="Visual Studio 14 2015%arch%" )
-    If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Ubuntu" ( set generator="Unix Makefiles" )
-    echo %generator%
+      If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
+      If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2015" ( set generator="Visual Studio 14 2015%arch%" )
+      If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Ubuntu" ( set generator="Unix Makefiles" )
+      echo %generator%
   - sh: |
-    docker pull $DOCKER_IMAGE
+      docker pull $DOCKER_IMAGE
 #- set arch=
 #- if "%arch%"=="Win64" ( set arch= Win64)
 #- echo %arch%
@@ -47,7 +47,7 @@ init:
 #- sh: sh build_files/build_environment/install_deps.sh --with-all --no-confirm
 
 install:
-- sh: cmake cmake-curses-gui
+- sh: cmake
 
 build_script:
   - cmd: |
@@ -56,7 +56,7 @@ build_script:
       cd build
       cmake --version
       cmake .. -G %generator%
-   -sh: >-
+   - sh: >-
      docker run --rm -v $(pwd):/src $DOCKER_IMAGE /bin/bash -c "
        mkdir build && cd build;
        apt install git cmake;
