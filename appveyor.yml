@@ -24,11 +24,11 @@ matrix:
 
 # skip unsupported combinations
 init:
-  - ps: |
-    If ($isLinux) {
-      $env:APPVEYOR_CACHE_SKIP_RESTORE = "true"
-      $env:APPVEYOR_CACHE_SKIP_SAVE = "true"
-    }
+#  - ps: |
+#    If ($isLinux) {
+#      $env:APPVEYOR_CACHE_SKIP_RESTORE = "true"
+#      $env:APPVEYOR_CACHE_SKIP_SAVE = "true"
+#    }
   - cmd: |
     If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
     If "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2015" ( set generator="Visual Studio 14 2015%arch%" )
