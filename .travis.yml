@@ -61,6 +61,14 @@ matrix:
           - svn
 #    before_install: echo p | svn list https://svn.blender.org/svnroot/bf-blender/trunk/lib/darwin
     install: svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/darwin ../lib/darwin --trust-server-cert --non-interactive
+    deploy:
+      provider: releases
+      api_key:
+        secure: "85e7998d91d00f6ca8260652a0c7057df242ddca"
+      file: ./*.dmg
+      skip_cleanup: true
+      on:
+        tags: true
     env:
       - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
 
