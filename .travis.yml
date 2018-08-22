@@ -58,7 +58,8 @@ matrix:
     addons:
       apt:
         packages:
-          - gtar
+          - svn
+    install: svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/darwin ../lib/darwin
     env:
       - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
 
