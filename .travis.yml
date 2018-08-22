@@ -103,3 +103,4 @@ script:
   - mkdir build
   - cd build
   - cmake .. && make install && make package
+  - ls . && ls $HOME/build/
