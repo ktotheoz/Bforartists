@@ -17,7 +17,7 @@ matrix:
   include:
   - os: linux
     dist: trusty
-    compiler: gcc-4
+    compiler: gcc-4.4
     addons:
       apt:
         sources:
@@ -26,13 +26,29 @@ matrix:
           - nvidia-cuda-dev
           - libcuda1-384
           - build-essential
-          - gcc-4-multilib
-          - gcc-4
-          - g++-4
+          - gcc-4.4-multilib
+          - gcc-4.4
+          - g++-4.4
+          - cmake
+          - doxygen
+  - os: linux
+    dist: precise
+    compiler: gcc-5
+    addons:
+      apt:
+        sources:
+          - ubuntu-toolchain-r-test
+        packages:
+          - nvidia-cuda-dev
+          - libcuda1-384
+          - build-essential
+          - gcc-5-multilib
+          - gcc-5
+          - g++-5
           - cmake
           - doxygen
     env:
-      - MATRIX_EVAL="gcc-4 && CXX=g++-4 && NPROC=$(nproc)"
+      - MATRIX_EVAL="gcc && CXX=g++ && NPROC=$(nproc)"
 
 # Before compile
 install:
