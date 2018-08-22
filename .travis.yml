@@ -102,5 +102,5 @@ matrix:
 script:
   - mkdir build
   - cd build
-  - cmake .. && make install && make package
+  - cmake -DCPACK_BINARY_DEB:BOOL=True .. && make install && make package
   - ls . && ls $HOME/build/
