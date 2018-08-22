@@ -32,7 +32,7 @@ matrix:
           - cmake
           - doxygen
   - os: linux
-    dist: precise
+    dist: xenial
     compiler: gcc-5
     addons:
       apt:
