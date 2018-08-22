@@ -32,6 +32,18 @@ matrix:
           - cmake
           - doxygen
     install: ./build_files/build_environment/install_deps.sh --skip-osl --no-confirm
+    before_deploy:
+      - export RELEASE_FILE=$(ls *.deb)
+      - echo "Deploying $RELEASE_FILE to GitHub"
+    deploy:
+      provider: releases
+      api_key:
+        secure: "85e7998d91d00f6ca8260652a0c7057df242ddca"
+      file: ${RELEASE_FILE}
+      skip_cleanup: true
+      on:
+        tags: true
+        all_branches: true
     env:
       - MATRIX_EVAL="gcc && CXX=g++ && NPROC=$(nproc)"
   - os: linux
@@ -51,6 +63,18 @@ matrix:
           - cmake
           - doxygen
     install: ./build_files/build_environment/install_deps.sh --skip-osl --no-confirm
+    before_deploy:
+      - export RELEASE_FILE=$(ls *.deb)
+      - echo "Deploying $RELEASE_FILE to GitHub"
+    deploy:
+      provider: releases
+      api_key:
+        secure: "85e7998d91d00f6ca8260652a0c7057df242ddca"
+      file: ${RELEASE_FILE}
+      skip_cleanup: true
+      on:
+        tags: true
+        all_branches: true
     env:
       - MATRIX_EVAL="gcc && CXX=g++ && NPROC=$(nproc)"
   - os: osx
@@ -61,14 +85,18 @@ matrix:
           - svn
 #    before_install: echo p | svn list https://svn.blender.org/svnroot/bf-blender/trunk/lib/darwin
     install: svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/darwin ../lib/darwin --trust-server-cert --non-interactive
+    before_deploy:
+      - export RELEASE_FILE=$(ls *.dmg)
+      - echo "Deploying $RELEASE_FILE to GitHub"
     deploy:
       provider: releases
       api_key:
         secure: "85e7998d91d00f6ca8260652a0c7057df242ddca"
-      file: ./*.dmg
+      file: ${RELEASE_FILE}
       skip_cleanup: true
       on:
         tags: true
+        all_branches: true
     env:
       - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
 
