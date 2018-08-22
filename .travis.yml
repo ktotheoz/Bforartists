@@ -55,6 +55,10 @@ matrix:
       - MATRIX_EVAL="gcc && CXX=g++ && NPROC=$(nproc)"
   - os: osx
     osx_image: xcode8
+    addons:
+      apt:
+        packages:
+          - gtar
     env:
       - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
 
