@@ -59,8 +59,8 @@ matrix:
       apt:
         packages:
           - svn
-    before_install: echo p | svn list https://svn.blender.org/svnroot/bf-blender/trunk/lib/darwin
-    install: svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/darwin ../lib/darwin
+#    before_install: echo p | svn list https://svn.blender.org/svnroot/bf-blender/trunk/lib/darwin
+    install: svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/darwin ../lib/darwin --trust-server-cert --non-interactive
     env:
       - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
 
