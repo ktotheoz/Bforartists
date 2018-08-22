@@ -17,7 +17,7 @@ matrix:
   include:
   - os: linux
     dist: trusty
-    compiler: gcc-6
+    compiler: gcc-4
     addons:
       apt:
         sources:
@@ -26,13 +26,13 @@ matrix:
           - nvidia-cuda-dev
           - libcuda1-384
           - build-essential
-          - gcc-6-multilib
-          - gcc-6
-          - g++-6
+          - gcc-4-multilib
+          - gcc-4
+          - g++-4
           - cmake
           - doxygen
     env:
-      - MATRIX_EVAL="gcc-6 && CXX=g++-6 && NPROC=$(nproc)"
+      - MATRIX_EVAL="gcc-4 && CXX=g++-4 && NPROC=$(nproc)"
 
 # Before compile
 install:
