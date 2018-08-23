@@ -38,7 +38,7 @@ matrix:
     deploy:
       provider: releases
       api_key:
-        secure: d8794a2274b4627e52b2ef06369f0c86e968abdb
+        secure: "NtEnGek6hZYj3IA8v9WJYhDpP/5K2dl/cLpaxmdNhYbXe6rfeMlIsXYXhEgwd41pE6QOIj8Vyd3d5brh9mQpN8CyGCdwHCT1M8DkH3q2Yq/nH3wqNX8l6kEJoYPfxL1tdAvb16QbI32xdPglkV6gmmWd3Wg/gTn4nt+gdlMJy7b2zi0DKVrIPvoaKQfcfKMLhydhfZqIskV7UvfPYfYmX74z75uLCRethAtZniDKVU2uxJNIuTOBpYQ8kO3ZD/ppVP2hyl+JjX6F411HaRmFlIstm3863h7yg/BuOjZ+ky8Yqxyg9usiHwjQEuxJfmhx5YmAsabCtsoomwM+722Ofucrq2hkkjob4n0iD7ZOyb15/FxTq1B7NxPyEXJwkv0Qi69DOE0bHrAAby+ucAQtp8TpjO/GzGjNdUGwMPwRQ9fGMH8kTFwQgKkeqnNNy4N/RCDOUv6os7ELaXAjzvQKjH8/L8ct+DnQouozrF7SX6OHdehafy4yTOF1UcVq/fHNHLlz3qeIROLLYn5DWOUIPOFqx1XLf62MKMgH1WCIx4pSTQoBIMIJTLEAEgsad4Qlsp/Z7TwfyIPgawj2ljtf0M3jESf7Mel9alvV3fyf79O5/NX5n716tH/XRLvuG4plDGCiCj4r/ilsoZqcMrGnGd5pERd8HfyUO4CpajUoxxg="
       file_glob: true
       file: ${RELEASE_FILE}
       skip_cleanup: true
@@ -70,7 +70,7 @@ matrix:
     deploy:
       provider: releases
       api_key:
-        secure: d8794a2274b4627e52b2ef06369f0c86e968abdb
+        secure: "NtEnGek6hZYj3IA8v9WJYhDpP/5K2dl/cLpaxmdNhYbXe6rfeMlIsXYXhEgwd41pE6QOIj8Vyd3d5brh9mQpN8CyGCdwHCT1M8DkH3q2Yq/nH3wqNX8l6kEJoYPfxL1tdAvb16QbI32xdPglkV6gmmWd3Wg/gTn4nt+gdlMJy7b2zi0DKVrIPvoaKQfcfKMLhydhfZqIskV7UvfPYfYmX74z75uLCRethAtZniDKVU2uxJNIuTOBpYQ8kO3ZD/ppVP2hyl+JjX6F411HaRmFlIstm3863h7yg/BuOjZ+ky8Yqxyg9usiHwjQEuxJfmhx5YmAsabCtsoomwM+722Ofucrq2hkkjob4n0iD7ZOyb15/FxTq1B7NxPyEXJwkv0Qi69DOE0bHrAAby+ucAQtp8TpjO/GzGjNdUGwMPwRQ9fGMH8kTFwQgKkeqnNNy4N/RCDOUv6os7ELaXAjzvQKjH8/L8ct+DnQouozrF7SX6OHdehafy4yTOF1UcVq/fHNHLlz3qeIROLLYn5DWOUIPOFqx1XLf62MKMgH1WCIx4pSTQoBIMIJTLEAEgsad4Qlsp/Z7TwfyIPgawj2ljtf0M3jESf7Mel9alvV3fyf79O5/NX5n716tH/XRLvuG4plDGCiCj4r/ilsoZqcMrGnGd5pERd8HfyUO4CpajUoxxg="
       file_glob: true
       file: ${RELEASE_FILE}
       skip_cleanup: true
@@ -92,7 +92,7 @@ matrix:
     deploy:
       provider: releases
       api_key:
-        secure: d8794a2274b4627e52b2ef06369f0c86e968abdb
+        secure: "NtEnGek6hZYj3IA8v9WJYhDpP/5K2dl/cLpaxmdNhYbXe6rfeMlIsXYXhEgwd41pE6QOIj8Vyd3d5brh9mQpN8CyGCdwHCT1M8DkH3q2Yq/nH3wqNX8l6kEJoYPfxL1tdAvb16QbI32xdPglkV6gmmWd3Wg/gTn4nt+gdlMJy7b2zi0DKVrIPvoaKQfcfKMLhydhfZqIskV7UvfPYfYmX74z75uLCRethAtZniDKVU2uxJNIuTOBpYQ8kO3ZD/ppVP2hyl+JjX6F411HaRmFlIstm3863h7yg/BuOjZ+ky8Yqxyg9usiHwjQEuxJfmhx5YmAsabCtsoomwM+722Ofucrq2hkkjob4n0iD7ZOyb15/FxTq1B7NxPyEXJwkv0Qi69DOE0bHrAAby+ucAQtp8TpjO/GzGjNdUGwMPwRQ9fGMH8kTFwQgKkeqnNNy4N/RCDOUv6os7ELaXAjzvQKjH8/L8ct+DnQouozrF7SX6OHdehafy4yTOF1UcVq/fHNHLlz3qeIROLLYn5DWOUIPOFqx1XLf62MKMgH1WCIx4pSTQoBIMIJTLEAEgsad4Qlsp/Z7TwfyIPgawj2ljtf0M3jESf7Mel9alvV3fyf79O5/NX5n716tH/XRLvuG4plDGCiCj4r/ilsoZqcMrGnGd5pERd8HfyUO4CpajUoxxg="
       file_glob: true
       file: ${RELEASE_FILE}
       skip_cleanup: true
@@ -105,4 +105,4 @@ matrix:
 script:
   - mkdir build
   - cd build
-  - cmake .. && make install && make package
+  - cmake -DCPACK_BINARY_DEB:BOOL=True .. && make install && make package
