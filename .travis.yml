@@ -38,7 +38,7 @@ matrix:
     deploy:
       provider: releases
       api_key:
-        secure: "85e7998d91d00f6ca8260652a0c7057df242ddca"
+        secure: d8794a2274b4627e52b2ef06369f0c86e968abdb
       file_glob: true
       file: ${RELEASE_FILE}
       skip_cleanup: true
@@ -70,7 +70,7 @@ matrix:
     deploy:
       provider: releases
       api_key:
-        secure: "85e7998d91d00f6ca8260652a0c7057df242ddca"
+        secure: d8794a2274b4627e52b2ef06369f0c86e968abdb
       file_glob: true
       file: ${RELEASE_FILE}
       skip_cleanup: true
@@ -92,7 +92,7 @@ matrix:
     deploy:
       provider: releases
       api_key:
-        secure: "85e7998d91d00f6ca8260652a0c7057df242ddca"
+        secure: d8794a2274b4627e52b2ef06369f0c86e968abdb
       file_glob: true
       file: ${RELEASE_FILE}
       skip_cleanup: true
