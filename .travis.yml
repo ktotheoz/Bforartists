@@ -107,7 +107,8 @@ matrix:
       - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
 
 script:
-  - mkdir build
-  - cd build
-  - cmake -DCPACK_BINARY_DEB:BOOL=True .. && make install && make package
-  - ls . && ls $HOME/build/
+  - make -f GNUmakefile full
+#  - mkdir build
+#  - cd build
+#  - cmake -DCPACK_BINARY_DEB:BOOL=True .. && make install && make package
+#  - ls . && ls $HOME/build/
