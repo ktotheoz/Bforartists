@@ -10,6 +10,10 @@ addons:
       - cmake-data
       - cmake
 
+cache:
+  directories:
+    - $HOME
+    
 compiler:
   - gcc
 
@@ -39,6 +43,7 @@ matrix:
       provider: releases
       api_key:
         secure: "85e7998d91d00f6ca8260652a0c7057df242ddca"
+      file_glob: true
       file: ${RELEASE_FILE}
       skip_cleanup: true
       on:
@@ -70,6 +75,7 @@ matrix:
       provider: releases
       api_key:
         secure: "85e7998d91d00f6ca8260652a0c7057df242ddca"
+      file_glob: true
       file: ${RELEASE_FILE}
       skip_cleanup: true
       on:
@@ -91,6 +97,7 @@ matrix:
       provider: releases
       api_key:
         secure: "85e7998d91d00f6ca8260652a0c7057df242ddca"
+      file_glob: true
       file: ${RELEASE_FILE}
       skip_cleanup: true
       on:
