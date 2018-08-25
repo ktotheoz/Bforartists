@@ -52,23 +52,9 @@ install:
 - sh: cmake
 
 build_script:
-  - cmd: |
-      if "%TARGET_PLATFORM%"=="x86" (svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/windows_vc14 ../lib/windows_vc14)
-      if "%TARGET_PLATFORM%"=="x64" (svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc14 ../lib/win64_vc14)
-      mkdir build
-      cd build
-      cmake --version
-      cmake . -G %generator% -DCMAKE_BUILD_TYPE=Release ..
-      cmake --build . --target INSTALL
-  - sh: >-
-      docker run --rm -v $(pwd):/src $DOCKER_IMAGE /bin/bash -c "
-        mkdir build && cd build;
-        apt update && apt upgrade -y && apt install -y git cmake sudo;
-        useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo;
-        . /src/build_files/build_environment/install_deps.sh --with-all --no-confirm;
-        echo Building with Unix Makefiles;
-        cmake . -G'Unix Makefiles' -DCMAKE_BUILD_TYPE=Release /src;
-        cmake --build .;"
+  if "%TARGET_PLATFORM%"=="x86" (svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/windows_vc14 ../lib/windows_vc14)
+  if "%TARGET_PLATFORM%"=="x64" (svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc14 ../lib/win64_vc14)
+  ./make.bat release
 
 #    call build_files/build_environment/windows/install_cuda.cmd
     
@@ -77,8 +63,8 @@ build_script:
 #  verbosity: minimal
 #  parallel: true
 deploy:
-  release: BforArtists
-  description: 'BforArtists AppVeyor Release Test'
+  release: Bforartists
+  description: 'Bforartists AppVeyor Release Test'
   provider: GitHub
   auth_token:
     secure: "ERlWoOkrphep39WP0GCsrJuIT2PxoQq4bxUrHZMLXq7Swlf7paDlXPW8C2yS2S1DOpRmZrD3jwIp8lu1OhVYoke8rGURXdRvKyNKpHUfYYDZZmY81sAhYQPCXW3AblurbgqpzJkwJADDA108KYJ6RQ/iOYVdmxaJ1hz/LYGBVbl5Us2i7iGY1JlC3SMNXDt2AH3aLHlOltywNaOcus9aSATGyQVcbzToBh7AhrzvlDNVV1huMwOFEVu9PFnxS8J7KtBVK/tQ3vJEvNkcusCMN5p5Ut8C423MQj/26GBkKN0FJ8wOAuXvi32F1/6F2vFx7Vguzqs/+YQMRdeP5ReLgdBNDJNFuoR0M5hlcXNGNJKY+O5rPJJMaT0S78t5vYD5Bt+9cyNIPnbai6dOlqahAvMEzrdoTJrhK+E0aAgKqybOLObJeqmPCDXsgBo+su3ZHk5nBRH1RQtg6ToYVl2wmZJd/BkwLnLYzzT5sHD4gddHxOFa5uSqUqR9RQeL2olL21lCj8wJ4k43jb9zAqZ7qtgSDCFVpIgnvOO2fVIhfKb6OteaEkD8B4D3mLdlq9N73v9nFASviqM7ry5GOaLHPqSPya9Lv3rArHUzHso2sf2KtJB7Z/uYYiCxgFU5/YN+ajngrovzqvU43HsF9ShjcMmwrxadHqR45/6U+qq82HQ="
