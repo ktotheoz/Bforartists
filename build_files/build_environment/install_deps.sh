@@ -1513,7 +1513,7 @@ compile_OPENEXR() {
     if [ "$OPENEXR_USE_REPO" = true ]; then
       # XXX For now, always update from latest repo...
       git pull origin master
-      git checkout $OPENEXR_SOURCE_REPO_UID
+      # TODO(ktotheoz): git checkout $OPENEXR_SOURCE_REPO_UID
       git reset --hard
       oiio_src_path="../OpenEXR"
     else
