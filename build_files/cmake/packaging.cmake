@@ -1,9 +1,9 @@
 string(TIMESTAMP CURRENT_YEAR "%Y")
 
-set(PROJECT_DESCRIPTION  "Blender is the free and open source 3D creation suite software.")
+set(PROJECT_DESCRIPTION  "Bforartists is the free and open source 3D creation suite software.")
 set(PROJECT_COPYRIGHT    "Copyright (C) 2001-${CURRENT_YEAR} Blender Foundation")
 set(PROJECT_CONTACT      "foundation@blender.org")
-set(PROJECT_VENDOR       "Blender Foundation")
+set(PROJECT_VENDOR       "Bforartists")
 
 set(MAJOR_VERSION ${BLENDER_VERSION_MAJOR})
 set(MINOR_VERSION ${BLENDER_VERSION_MINOR})
@@ -53,7 +53,8 @@ endif()
 if(CPACK_OVERRIDE_PACKAGENAME)
 	set(CPACK_PACKAGE_FILE_NAME ${CPACK_OVERRIDE_PACKAGENAME}-${PACKAGE_ARCH})
 else()
-	set(CPACK_PACKAGE_FILE_NAME ${PROJECT_NAME_LOWER}-${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}-git${CPACK_DATE}.${BUILD_REV}-${PACKAGE_ARCH})
+	#set(CPACK_PACKAGE_FILE_NAME ${PROJECT_NAME_LOWER}-${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}-git${CPACK_DATE}.${BUILD_REV}-${PACKAGE_ARCH}) # bfa - blender string
+	set(CPACK_PACKAGE_FILE_NAME ${PROJECT_NAME_LOWER}.1.0.0-${PACKAGE_ARCH})
 endif()
 
 if(CMAKE_SYSTEM_NAME MATCHES "Linux")
@@ -80,8 +81,8 @@ if(APPLE)
 endif()
 
 if(WIN32)
-	set(CPACK_PACKAGE_INSTALL_DIRECTORY "Blender Foundation/Blender")
-	set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "Blender Foundation/Blender")
+	set(CPACK_PACKAGE_INSTALL_DIRECTORY "Bforartists 1.0.0")
+	set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "Bforartists 1.0.0")
 
 	set(CPACK_NSIS_MUI_ICON ${CMAKE_SOURCE_DIR}/release/windows/icons/winblender.ico)
 	set(CPACK_NSIS_COMPRESSOR "/SOLID lzma")
@@ -98,8 +99,8 @@ if(WIN32)
 	set(CPACK_WIX_LIGHT_EXTRA_FLAGS -dcl:high)
 endif()
 
-set(CPACK_PACKAGE_EXECUTABLES "blender" "blender")
-set(CPACK_CREATE_DESKTOP_LINKS "blender" "blender")
+set(CPACK_PACKAGE_EXECUTABLES "bforartists" "bforartists")
+set(CPACK_CREATE_DESKTOP_LINKS "bforartists" "bforartists")
 
 include(CPack)
 
