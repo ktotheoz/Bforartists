@@ -316,10 +316,10 @@ OCIO_FORCE_BUILD=false
 OCIO_FORCE_REBUILD=false
 OCIO_SKIP=false
 
-OPENEXR_VERSION="2.2.1"
+OPENEXR_VERSION="2.3.0"
 OPENEXR_VERSION_MIN="2.0.1"
-ILMBASE_VERSION="2.2.1"
-ILMBASE_VERSION_MIN="2.2"
+ILMBASE_VERSION="2.3.0"
+ILMBASE_VERSION_MIN="2.3"
 OPENEXR_FORCE_BUILD=false
 OPENEXR_FORCE_REBUILD=false
 OPENEXR_SKIP=false
@@ -739,7 +739,7 @@ PYTHON_SOURCE=( "https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHO
 NUMPY_SOURCE=( "https://github.com/numpy/numpy/releases/download/v$NUMPY_VERSION/numpy-$NUMPY_VERSION.tar.gz" )
 
 _boost_version_nodots=`echo "$BOOST_VERSION" | sed -r 's/\./_/g'`
-BOOST_SOURCE=( "http://sourceforge.net/projects/boost/files/boost/$BOOST_VERSION/boost_1_60_0.tar.bz2/download" )
+BOOST_SOURCE=( "http://sourceforge.net/projects/boost/files/boost/$BOOST_VERSION/boost_$_boost_version_nodots.tar.bz2/download" )
 BOOST_BUILD_MODULES="--with-system --with-filesystem --with-thread --with-regex --with-locale --with-date_time --with-wave --with-iostreams --with-python --with-program_options"
 
 OCIO_USE_REPO=true
@@ -748,10 +748,10 @@ OCIO_SOURCE_REPO=( "https://github.com/imageworks/OpenColorIO.git" )
 OCIO_SOURCE_REPO_UID="6de971097c7f552300f669ed69ca0b6cf5a70843"
 
 OPENEXR_USE_REPO=true
-OPENEXR_SOURCE=( "http://download.savannah.nongnu.org/releases/openexr/openexr-$OPENEXR_VERSION.tar.gz" )
 OPENEXR_SOURCE_REPO=( "https://github.com/openexr/openexr.git" )
-OPENEXR_SOURCE_REPO_UID="2787aa1cf652d244ed45ae124eb1553f6cff11ee"
-ILMBASE_SOURCE=( "http://download.savannah.nongnu.org/releases/openexr/ilmbase-$ILMBASE_VERSION.tar.gz" )
+OPENEXR_SOURCE_REPO_UID="0ac2ea34c8f3134148a5df4052e40f155b76f6fb"
+OPENEXR_SOURCE=( "https://github.com/openexr/openexr/archive/$OPENEXR_SOURCE_REPO_UID.tar.gz" )
+ILMBASE_SOURCE=( "https://github.com/openexr/openexr/releases/download/v$ILMBASE_VERSION/ilmbase-$ILMBASE_VERSION.tar.gz" )
 
 OIIO_USE_REPO=false
 OIIO_SOURCE=( "https://github.com/OpenImageIO/oiio/archive/Release-$OIIO_VERSION.tar.gz" )
